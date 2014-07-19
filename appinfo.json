@@ -1,0 +1,129 @@
+{
+    "appKeys": {
+        "invert": 1,
+        "vibeminutes": 3
+    },
+    "capabilities": [
+        "configurable"
+    ],
+    "companyName": "Oliver Bowe",
+    "longName": "Big Bariol",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/menu_icon_big_watch.png",
+                "menuIcon": true,
+                "name": "IMAGE_MENU_ICON",
+                "type": "png"
+            },
+            {
+                "file": "images/num_white_0.png",
+                "name": "IMAGE_NUM_WHITE_0",
+                "type": "png"
+            },
+            {
+                "file": "images/num_white_1.png",
+                "name": "IMAGE_NUM_WHITE_1",
+                "type": "png"
+            },
+            {
+                "file": "images/num_white_2.png",
+                "name": "IMAGE_NUM_WHITE_2",
+                "type": "png"
+            },
+            {
+                "file": "images/num_white_3.png",
+                "name": "IMAGE_NUM_WHITE_3",
+                "type": "png"
+            },
+            {
+                "file": "images/num_white_4.png",
+                "name": "IMAGE_NUM_WHITE_4",
+                "type": "png"
+            },
+            {
+                "file": "images/num_white_5.png",
+                "name": "IMAGE_NUM_WHITE_5",
+                "type": "png"
+            },
+            {
+                "file": "images/num_white_6.png",
+                "name": "IMAGE_NUM_WHITE_6",
+                "type": "png"
+            },
+            {
+                "file": "images/num_white_7.png",
+                "name": "IMAGE_NUM_WHITE_7",
+                "type": "png"
+            },
+            {
+                "file": "images/num_white_8.png",
+                "name": "IMAGE_NUM_WHITE_8",
+                "type": "png"
+            },
+            {
+                "file": "images/num_white_9.png",
+                "name": "IMAGE_NUM_WHITE_9",
+                "type": "png"
+            },
+            {
+                "file": "images/num_black_0.png",
+                "name": "IMAGE_NUM_BLACK_0",
+                "type": "png"
+            },
+            {
+                "file": "images/num_black_1.png",
+                "name": "IMAGE_NUM_BLACK_1",
+                "type": "png"
+            },
+            {
+                "file": "images/num_black_2.png",
+                "name": "IMAGE_NUM_BLACK_2",
+                "type": "png"
+            },
+            {
+                "file": "images/num_black_3.png",
+                "name": "IMAGE_NUM_BLACK_3",
+                "type": "png"
+            },
+            {
+                "file": "images/num_black_4.png",
+                "name": "IMAGE_NUM_BLACK_4",
+                "type": "png"
+            },
+            {
+                "file": "images/num_black_5.png",
+                "name": "IMAGE_NUM_BLACK_5",
+                "type": "png"
+            },
+            {
+                "file": "images/num_black_6.png",
+                "name": "IMAGE_NUM_BLACK_6",
+                "type": "png"
+            },
+            {
+                "file": "images/num_black_7.png",
+                "name": "IMAGE_NUM_BLACK_7",
+                "type": "png"
+            },
+            {
+                "file": "images/num_black_8.png",
+                "name": "IMAGE_NUM_BLACK_8",
+                "type": "png"
+            },
+            {
+                "file": "images/num_black_9.png",
+                "name": "IMAGE_NUM_BLACK_9",
+                "type": "png"
+            }
+        ]
+    },
+    "shortName": "Big Bariol",
+    "uuid": "1f0648f0-84a6-11e3-baa7-0800200c9a66",
+    "versionCode": 6,
+    "versionLabel": "6.1.5",
+    "watchapp": {
+        "watchface": true
+    }
+}

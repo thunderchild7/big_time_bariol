@@ -200,12 +200,16 @@ static void display_time(struct tm *tick_time) {
 
 static void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
   display_time(tick_time);
-	//if (vibrate != vibrate_none) {
+	if (mVibeMinutes != 0){
 		if ((tick_time->tm_min % mVibeMinutes == 0 ) && (tick_time->tm_sec==0))
 		{
 			vibes_double_pulse();	
 		}
-	//}
+		if ((mVibeMinutes == 60 ) && (units_changed & HOUR_UNIT))
+		{
+			vibes_double_pulse();	
+		}
+	};
 }
 
 static void sync_tuple_changed_callback(const uint32_t key, const Tuple * new_tuple, const Tuple * old_tuple, void *context) {
@@ -216,26 +220,20 @@ static void sync_tuple_changed_callback(const uint32_t key, const Tuple * new_tu
     switch (key) {
 
 		case INVERT_KEY:
-			//remove_invert();
+
 			mInvert = new_tuple->value->uint8;
+			persist_write_int(INVERT_KEY, mInvert);
 		    window_set_background_color(window, (mInvert) ? GColorBlack : GColorWhite);
              // swap colours now.
              time_t now = time(NULL);
              struct tm *tick_time = localtime(&now);
              display_time(tick_time);
-			//if (mInvert) {
-			//	set_invert();
-			//}
+
 			break;
 
 		case VIBEMINUTES_KEY:
 			mVibeMinutes = new_tuple->value->int32;
-		/* TODO: Handle >59 minutes vibe
-		    if(mVibeMinutes>59) {
-			    mVibeMinutes -= 60;
-            }
-		*/
-
+		    persist_write_int(VIBEMINUTES_KEY, mVibeMinutes);
 			break;
 
 
@@ -246,6 +244,14 @@ static void sync_tuple_changed_callback(const uint32_t key, const Tuple * new_tu
 
 static void init() {
 
+	if (persist_exists(INVERT_KEY)) {
+		// If so, read it in to a variable
+		mInvert = persist_read_int(INVERT_KEY);
+	}
+	if (persist_exists(VIBEMINUTES_KEY)) {
+		// If so, read it in to a variable
+		mVibeMinutes = persist_read_int(VIBEMINUTES_KEY);
+	}
 	Tuplet initial_values[NUM_CONFIG_KEYS] = {
 		TupletInteger(INVERT_KEY, mInvert),
 		TupletInteger(VIBEMINUTES_KEY, mVibeMinutes)
@@ -258,8 +264,6 @@ static void init() {
   window = window_create();
   window_stack_push(window, true);
   window_set_background_color(window, (mInvert) ? GColorBlack : GColorWhite);
-  //window_set_background_color(window, GColorBlack);
-  //  default settings
 
   // Avoids a blank screen on watch start.
   time_t now = time(NULL);
